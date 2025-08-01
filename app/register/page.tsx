@@ -8,8 +8,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-export default function Login() {
+export default function Register() {
   // const form = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -68,22 +75,34 @@ export default function Login() {
                 </Button>
               </div>
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="role">Role</Label>
+              <Select>
+                <SelectTrigger className="w-full py-5 rounded-md">
+                  <SelectValue placeholder="Select role" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="user">User</SelectItem>
+                  <SelectItem value="admin">Admin</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <Button
               type="submit"
               className="w-full h-11 py-1 mt-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
             >
-              Login
+              Register
             </Button>
           </form>
 
           <div className="mt-6 text-center">
             <span className="text-sm text-gray-600">
-              Don&apos;t have an account?{" "}
+              Already have an account?{" "}
               <Link
-                href="/register"
+                href="/"
                 className="font-medium text-blue-600 hover:text-blue-500 transition-colors underline"
               >
-                Register
+                Login
               </Link>
             </span>
           </div>
